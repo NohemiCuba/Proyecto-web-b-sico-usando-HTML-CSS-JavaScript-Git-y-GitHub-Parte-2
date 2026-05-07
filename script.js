@@ -1,31 +1,34 @@
-function saludar() {
+function agregarContacto(){
 
-    let nombre = document.getElementById("nombre").value;
+    let nombre = document.getElementById("nombre").value.trim();
+    let telefono = document.getElementById("telefono").value.trim();
+    let correo = document.getElementById("correo").value.trim();
 
-    if(nombre === ""){
-        document.getElementById("resultado").innerText =
-        "Por favor, ingrese su nombre.";
-    }
-    else{
-        document.getElementById("resultado").innerText =
-        "Hola " + nombre + ", bienvenido al sistema.";
-    }
-}
+    let mensaje = document.getElementById("mensaje");
 
-function validarCorreo() {
+    if(nombre === "" || telefono === "" || correo === ""){
+        mensaje.innerText = "Todos los campos son obligatorios.";
+        mensaje.style.color = "red";
+        return;
+    }
+    if(telefono.length < 9){
+        mensaje.innerText = "Número telefónico inválido.";
+        mensaje.style.color = "red";
+        return;
+    }
+    if(!correo.includes("@") || !correo.includes(".")){
+        mensaje.innerText = "Correo inválido.";
+        mensaje.style.color = "red";
+        return;
+    }
+    let contacto = {nombre, telefono, correo};
+    contactos.push(contacto);
+    mostrarContactos();
 
-    let correo = document.getElementById("correo").value;
+    mensaje.innerText = "Contacto agregado correctamente.";
+    mensaje.style.color = "green";
 
-    if(correo === ""){
-        document.getElementById("mensajeCorreo").innerText =
-        "Debe ingresar un correo.";
-    }
-    else if(!correo.includes("@")){
-        document.getElementById("mensajeCorreo").innerText =
-        "Correo inválido.";
-    }
-    else{
-        document.getElementById("mensajeCorreo").innerText =
-        "Correo registrado correctamente.";
-    }
+    document.getElementById("nombre").value="";
+    document.getElementById("telefono").value="";
+    document.getElementById("correo").value="";
 }
