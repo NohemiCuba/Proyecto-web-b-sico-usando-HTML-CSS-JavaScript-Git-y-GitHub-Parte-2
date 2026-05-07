@@ -46,3 +46,20 @@ function buscarContacto(){
         }
     });
 }
+function eliminarContacto(indice){
+
+    let confirmar = confirm("¿Desea eliminar este contacto?");
+
+    if(!confirmar){
+        return;
+    }
+
+    contactos.splice(indice,1);
+
+    mostrarContactos();
+
+    document.getElementById("mensaje").innerText =
+    "Contacto eliminado correctamente.";
+
+    document.getElementById("mensaje").style.color="green";
+}
