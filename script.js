@@ -1,8 +1,10 @@
-function agregarContacto(){
+let contactos = [];
 
-    let nombre = document.getElementById("nombre").value.trim();
-    let telefono = document.getElementById("telefono").value.trim();
-    let correo = document.getElementById("correo").value.trim();
+function agregarContacto() {
+
+    let nombre = document.getElementById("nombre").value;
+    let telefono = document.getElementById("telefono").value;
+    let correo = document.getElementById("correo").value;
 
     let mensaje = document.getElementById("mensaje");
 
@@ -11,55 +13,66 @@ function agregarContacto(){
         mensaje.style.color = "red";
         return;
     }
-    if(telefono.length < 9){
-        mensaje.innerText = "Número telefónico inválido.";
+
+    if(!correo.includes("@")){
+        mensaje.innerText = "Ingrese un correo válido.";
         mensaje.style.color = "red";
         return;
     }
-    if(!correo.includes("@") || !correo.includes(".")){
-        mensaje.innerText = "Correo inválido.";
-        mensaje.style.color = "red";
-        return;
-    }
-    let contacto = {nombre, telefono, correo};
+
+    let contacto = {
+        nombre: nombre,
+        telefono: telefono,
+        correo: correo
+    };
+
     contactos.push(contacto);
+
     mostrarContactos();
 
     mensaje.innerText = "Contacto agregado correctamente.";
     mensaje.style.color = "green";
 
-    document.getElementById("nombre").value="";
-    document.getElementById("telefono").value="";
-    document.getElementById("correo").value="";
+    document.getElementById("nombre").value = "";
+    document.getElementById("telefono").value = "";
+    document.getElementById("correo").value = "";
 }
-function buscarContacto(){
 
-    let texto = document.getElementById("buscar").value.toLowerCase();
+function mostrarContactos() {
 
-    let tarjetas = document.querySelectorAll(".contacto");
+    let lista = document.getElementById("listaContactos");
 
-    tarjetas.forEach(tarjeta=>{
-        if(tarjeta.innerText.toLowerCase().includes(texto)){
-            tarjeta.style.display="block";
-        }else{
-            tarjeta.style.display="none";
-        }
-    });
+    lista.innerHTML = "";
+
+    for(let i = 0; i < contactos.length; i++){
+
+        lista.innerHTML += `
+            <div class="contacto">
+
+                <h3>${contactos[i].nombre}</h3>
+
+                <p><strong>Teléfono:</strong> ${contactos[i].telefono}</p>
+
+                <p><strong>Correo:</strong> ${contactos[i].correo}</p>
+
+                <button class="btn-eliminar"
+                onclick="eliminarContacto(${i})">
+
+                    Eliminar
+
+                </button>
+
+            </div>
+        `;
+    }
 }
+
 function eliminarContacto(indice){
 
-    let confirmar = confirm("¿Desea eliminar este contacto?");
-
-    if(!confirmar){
-        return;
-    }
-
-    contactos.splice(indice,1);
+    contactos.splice(indice, 1);
 
     mostrarContactos();
 
     document.getElementById("mensaje").innerText =
     "Contacto eliminado correctamente.";
-
-    document.getElementById("mensaje").style.color="green";
 }

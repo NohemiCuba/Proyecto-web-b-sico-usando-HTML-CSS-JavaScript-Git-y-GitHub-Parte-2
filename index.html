@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda de Contactos</title>
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div class="contenedor">
+    <div class="contenedor">
 
-    <h1>Agenda de Contactos</h1>
-    <p class="subtitulo">Gestiona tus contactos fácilmente</p>
+        <h1>Agenda de Contactos</h1>
 
-    <div class="formulario">
-        <input type="text" id="nombre" placeholder="Nombre del contacto">
-        <input type="text" id="telefono" placeholder="Número telefónico">
-        <input type="email" id="correo" placeholder="Correo electrónico">
-        <button onclick="agregarContacto()">Agregar Contacto</button>
+        <div class="formulario">
+
+            <input type="text" id="nombre" placeholder="Nombre del contacto">
+
+            <input type="text" id="telefono" placeholder="Número telefónico">
+
+            <input type="email" id="correo" placeholder="Correo electrónico">
+
+            <button onclick="agregarContacto()">
+                Agregar Contacto
+            </button>
+
+        </div>
+
+        <p id="mensaje"></p>
+
+        <div id="listaContactos" class="lista-contactos">
+
+        </div>
+
     </div>
 
-    <p id="mensaje"></p>
-    <input type="text" id="buscar" placeholder="Buscar contacto..." oninput="buscarContacto()">
-    <div id="listaContactos" class="lista-contactos"></div>
+    <script src="script.js"></script>
 
-</div>
-
-<script src="script.js"></script>
 </body>
+
 </html>
