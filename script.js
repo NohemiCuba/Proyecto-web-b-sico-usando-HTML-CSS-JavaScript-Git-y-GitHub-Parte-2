@@ -32,3 +32,17 @@ function agregarContacto(){
     document.getElementById("telefono").value="";
     document.getElementById("correo").value="";
 }
+function buscarContacto(){
+
+    let texto = document.getElementById("buscar").value.toLowerCase();
+
+    let tarjetas = document.querySelectorAll(".contacto");
+
+    tarjetas.forEach(tarjeta=>{
+        if(tarjeta.innerText.toLowerCase().includes(texto)){
+            tarjeta.style.display="block";
+        }else{
+            tarjeta.style.display="none";
+        }
+    });
+}
