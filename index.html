@@ -1,29 +1,84 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Mi Proyecto Web</title>
-    <p>Este proyecto fue publicado usando GitHub.</p>
-    <!-- Enlace al archivo CSS -->
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Mi Primer Proyecto con Git</h1>
-    <h1>Bienvenido a mi Página Web</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Web con Git y GitHub</title>
 
-    <p>Este proyecto fue publicado usando GitHub.</p>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-    <p>Ingrese su nombre:</p>
-    <input type="text" id="nombre" placeholder="Escribe tu nombre" />
-    <button onclick="saludar()">Saludar</button>
-    <p id="resultado"></p>
+<body>
 
-    <h2>Formulario de contacto</h2>
-    <input type="email" id="correo" placeholder="Ingrese su correo" />
-    <button onclick="validarCorreo()">Validar correo</button>
-    <p id="mensajeCorreo"></p>
+    <div class="contenedor">
 
-    <!-- Enlace al archivo JavaScript -->
+        <h1>Bienvenido a mi Página Web</h1>
+
+        <p class="descripcion">
+            Este proyecto fue desarrollado utilizando HTML, CSS, JavaScript,
+            Git y GitHub.
+        </p>
+
+        <div class="seccion">
+            <h2>Saludo Personalizado</h2>
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Ingrese su nombre"
+            >
+
+            <button onclick="saludar()">
+                Saludar
+            </button>
+
+            <p id="resultado"></p>
+        </div>
+
+        <div class="seccion">
+            <h2>Formulario de Contacto</h2>
+
+            <input
+                type="email"
+                id="correo"
+                placeholder="Ingrese su correo"
+            >
+
+            <button onclick="validarCorreo()">
+                Validar correo
+            </button>
+
+            <p id="mensajeCorreo"></p>
+        </div>
+
+        <div class="tarjetas">
+
+            <div class="card">
+                <h3>HTML</h3>
+                <p>
+                    Estructura principal del sistema web.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>CSS</h3>
+                <p>
+                    Diseño visual y estilos modernos.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>JavaScript</h3>
+                <p>
+                    Funcionalidad e interacción dinámica.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
     <script src="script.js"></script>
-  </body>
+
+</body>
 </html>
