@@ -1,84 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Web con Git y GitHub</title>
-
+    <title>Agenda de Contactos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-    <div class="contenedor">
+<div class="contenedor">
 
-        <h1>Bienvenido a mi Página Web</h1>
+    <h1>Agenda de Contactos</h1>
+    <p class="subtitulo">Gestiona tus contactos fácilmente</p>
 
-        <p class="descripcion">
-            Este proyecto fue desarrollado utilizando HTML, CSS, JavaScript,
-            Git y GitHub.
-        </p>
-
-        <div class="seccion">
-            <h2>Saludo Personalizado</h2>
-
-            <input
-                type="text"
-                id="nombre"
-                placeholder="Ingrese su nombre"
-            >
-
-            <button onclick="saludar()">
-                Saludar
-            </button>
-
-            <p id="resultado"></p>
-        </div>
-
-        <div class="seccion">
-            <h2>Formulario de Contacto</h2>
-
-            <input
-                type="email"
-                id="correo"
-                placeholder="Ingrese su correo"
-            >
-
-            <button onclick="validarCorreo()">
-                Validar correo
-            </button>
-
-            <p id="mensajeCorreo"></p>
-        </div>
-
-        <div class="tarjetas">
-
-            <div class="card">
-                <h3>HTML</h3>
-                <p>
-                    Estructura principal del sistema web.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>CSS</h3>
-                <p>
-                    Diseño visual y estilos modernos.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>JavaScript</h3>
-                <p>
-                    Funcionalidad e interacción dinámica.
-                </p>
-            </div>
-
-        </div>
-
+    <div class="formulario">
+        <input type="text" id="nombre" placeholder="Nombre del contacto">
+        <input type="text" id="telefono" placeholder="Número telefónico">
+        <input type="email" id="correo" placeholder="Correo electrónico">
+        <button onclick="agregarContacto()">Agregar Contacto</button>
     </div>
 
-    <script src="script.js"></script>
+    <p id="mensaje"></p>
 
+    <div id="listaContactos" class="lista-contactos"></div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
